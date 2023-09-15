@@ -1,9 +1,8 @@
-from flask import Flask,render_template,url_for,flash,redirect
-from forms import RegistrationForm, LoginForm
-app=Flask(__name__)
+from flask import  render_template,url_for,flash,redirect
+from flask_blog.forms import RegistrationForm, LoginForm
+from flask_blog import app
+from flask_blog.models import User,Post
 
-# go to python cli and type improt secrets and then secrets.token_hex(16) and it will give you a randon 16 digit key value
-app.config['SECRET_KEY']='b05103f9ee374fa043ba58ced99cfcb4'
 posts=[
     {
         'author': 'Yash Dobriyal',
@@ -51,9 +50,3 @@ def login():
             flash('Log in unsuccesfull, check username and password','danger')
     return render_template('login.html', title='Login',form=form)
 
-
-
-
-
-if __name__ == '__main__':
-    app.run(debug=True,port=8080)
