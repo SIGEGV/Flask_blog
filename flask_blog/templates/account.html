@@ -7,7 +7,60 @@
         <div class="media-body"> 
                  <h2 class="account-heading">{{current_user.username}}</h2>
                  <p class="text-secondry">{{current_user.email}}</p>
-            <div>
+            </div>
+             <!--When encoding form data, you must include the enctype attribute in the <form> tag-->
+                <!--this is for our form to pass our image properly-->
+            <form method="POST", action ="" enctype="multipart/form-data">
+                <!--this tag add CSRF Token-->
+                {{form.hidden_tag()}}
+                <fieldset class="form-group">
+                    <legend class="border-bootom mb-4"> Account Info</legend>
+                    <div class="form-group">
+                        {{form.username.label(class="form-control-label")}}
+        
+                            {% if form.username.errors %}
+                            
+                                  {{form.username(class="form-control form-control-lg is-invalid")}}
+                                  <div class="invalid-feedback">
+                                    {%for errors in form.username.errors%}
+                                           <span>{{errors}}</span>
+                                    {% endfor %}
+                                  </div>
+                             {% else %}
+                        {{form.username(class="form-control form-control-lg")}}
+                        {% endif %}
+        
+                    </div>
+                    <div class="form-group">
+                        {{form.email.label(class="form-control-label")}}
+                        
+                        {% if form.email.errors %}
+                            
+                        {{form.email(class="form-control form-control-lg is-invalid")}}
+                        <div class="invalid-feedback">
+                          {%for errors in form.email.errors%}
+                                 <span>{{errors}}</span>
+                          {% endfor %}
+                        </div>
+                        {% else %}
+                        {{form.email(class="form-control form-control-lg")}}
+                          {% endif %}
+        
+                </div>    
+                <div class="form-group">
+                    {{form.picture.label()}} <br/>
+                    {{form.picture(class="form-control-file")}}
+                    {%if form.picture.errors%}
+                       {%for errors in form.pictures.errors%}
+                                 <span class="text-danger">{{errors}}</span></br>
+                          {% endfor %}
+                    {% endif %}
+                </div>
+                </fieldset>
+                <div class="form-group">
+                    {{form.submit(class="btn btn-outline-info")}}
+                </div>
+            </form>
         </div>
 </div>
 {% endblock body %}
