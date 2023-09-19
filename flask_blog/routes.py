@@ -2,7 +2,7 @@ import os
 import secrets
 from PIL import Image
 from flask import render_template, url_for, flash, redirect, request, abort
-from flask_blog.forms import RegistrationForm, LoginForm, updateAccountForms, PostForm
+from flask_blog.forms import RegistrationForm, LoginForm, updateAccountForms, PostForm,UserForm
 from flask_blog import app, db, bcrypt
 from flask_login import login_user, current_user, logout_user, login_required
 from flask_blog.models import User, Post
@@ -169,3 +169,16 @@ def user_post(username):
     post = Post.query.filter_by(Author=user).order_by(Post.date_posted.desc()).paginate(page=page, per_page=5)
 
     return render_template("user_post.html", posts=post, user=user)
+
+@app.route('/ForgotPassword',methods=['GET', 'POST'])
+def forget():
+    form=UserForm()
+    user=User()
+    if form.validate_on_submit():
+        user=User.query.filter_by(username=form.username.data).first()
+        hashed_password = bcrypt.generate_password_hash(form.password.data).decode("utf-8")
+        user.password=hashed_password
+        db.session.commit()
+        flash("Password updated", "success")
+        redirect(url_for('login'))
+    return render_template('forgot_pass.html',form=form)

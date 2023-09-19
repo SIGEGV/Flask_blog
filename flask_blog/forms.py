@@ -57,3 +57,9 @@ class PostForm(FlaskForm):
     title = StringField("Title", validators=[DataRequired()])
     content = TextAreaField("Content", validators=[DataRequired()])
     submit = SubmitField("Post")
+
+
+class UserForm(FlaskForm):
+    username=StringField("username",validators=[DataRequired()])
+    password=PasswordField("New_Password", validators=[DataRequired(), Length(min=6)])
+    submit = SubmitField("Submit")
