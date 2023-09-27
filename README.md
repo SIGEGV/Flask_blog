@@ -8,32 +8,24 @@ Creating, reading, updating, and deleting blog posts.
 
 To get started, clone this repository and install the dependencies:
 
-git clone https://github.com/your-username/flask-blog.git
-
+git clone https://github.com/SIGEGV/Flask_blog
 cd flask-blog
-
 pip install -r requirements.txt
 
 Finally, start the development server:
-
 flask --app run run --debug
-
 You can now access your blog at http://localhost:5000.
 
 <mark> User authentication and registration.</mark>
 
 To register for an account, go to the /register page and enter your username and password. Then, click the Register button.
-
 To log in, go to the /login page and enter your username and password. Then, click the Login button.
-
 Once you are logged in, you will be able to access the admin panel and create, read, update, and delete blog posts.
 
 <mark> Instructions for use:</mark>
 
 To read a blog post, go to the /home/ page.
-
 To update a blog post, go to the  /post/<post_id> page and make the changes you want. Then, click the Update Post button.
-
 To delete a blog post, go to the /post/<post_id> page and click the Delete Post button.
 
 
