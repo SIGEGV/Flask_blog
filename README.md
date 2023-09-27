@@ -4,7 +4,7 @@ This is a simple blog project made with Flask. It includes basic features such a
 
 Creating, reading, updating, and deleting blog posts.
 
-User authentication and registration
+<mark> User authentication and registration </mark>
 
 To get started, clone this repository and install the dependencies:
 
@@ -20,7 +20,7 @@ flask --app run run --debug
 
 You can now access your blog at http://localhost:5000.
 
-User authentication and registration.
+<mark> User authentication and registration.</mark>
 
 To register for an account, go to the /register page and enter your username and password. Then, click the Register button.
 
@@ -28,7 +28,7 @@ To log in, go to the /login page and enter your username and password. Then, cli
 
 Once you are logged in, you will be able to access the admin panel and create, read, update, and delete blog posts.
 
-Instructions for use:
+<mark> Instructions for use:</mark>
 
 To read a blog post, go to the /home/ page.
 
