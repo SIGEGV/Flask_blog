@@ -15,7 +15,7 @@ flask --app run run --debug
 
 You can now access your blog at http://localhost:5000.
 
-User authentication and registration
+User authentication and registration.
 To register for an account, go to the /register page and enter your username and password. Then, click the Register button.
 
 To log in, go to the /login page and enter your username and password. Then, click the Login button.
