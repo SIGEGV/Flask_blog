@@ -51,14 +51,14 @@
                     {{form.picture.label()}} <br/>
                     {{form.picture(class="form-control-file")}}
                     {%if form.picture.errors%}
-                       {%for errors in form.pictures.errors%}
+                       {%for errors in form.picture.errors%}
                                  <span class="text-danger">{{errors}}</span><br/>
                           {% endfor %}
                     {% endif %}
                 </div>
                 </fieldset>
                 <div class="form-group">
-                    <br/> <br/>
+                    <br/>
                     {{form.submit(class="btn btn-outline-info")}}
                 </div>
             </form>

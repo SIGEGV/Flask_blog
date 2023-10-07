@@ -12,10 +12,17 @@ app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///site.db"
 db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
 login_manager = LoginManager(app)
-login_manager.login_view = "login"
+login_manager.login_view = "user.login"
 login_manager.login_message_category = "info"
 #  dont change its position done to prevent cyclecalling
-from flask_blog import routes
+from flask_blog.user.routes import users
+from flask_blog.post.routes import posts
+from flask_blog.main.routes import main 
+from flask_blog.errors.handlers import errors
+app.register_blueprint(users)
+app.register_blueprint(posts)
+app.register_blueprint(main )
+app.register_blueprint(errors)
 
 
 # https://stackoverflow.com/questions/44941757/sqlalchemy-exc-operationalerror-sqlite3-operationalerror-no-such-table
